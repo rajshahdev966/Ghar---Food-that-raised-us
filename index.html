@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GHAR - Food that raised us.</title>
+    <meta name="description" content="An editorial archive of comfort-food memories. Different kitchens. Different recipes. Same love.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Inter:wght@400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-inner">
+            <nav class="nav">
+                <a href="#memories">Memories</a>
+                <a href="#kitchens">Kitchens</a>
+                <a href="#recipes">Recipes</a>
+                <a href="#family-table">Our Table</a>
+            </nav>
+            <div class="audio-control">
+                <button id="audio-toggle" aria-label="Toggle kitchen sounds">
+                    <span class="icon">🔊</span> Kitchen sounds
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="journey">
+        <!-- Hero Section -->
+        <section id="hero" class="section hero">
+            <div class="hero-content">
+                <div class="hero-label handwriting">A LOVE LETTER TO HOME</div>
+                <h1 class="hero-title">Food that raised us.</h1>
+                <p class="hero-subtitle">What do you call the place<br>where someone always fed you?</p>
+                <div class="hero-translation-container">
+                    <div id="hero-translation" class="hero-translation"></div>
+                </div>
+            </div>
+            
+            <div class="map-container" id="kitchens">
+                <div class="ghar-map-main">
+                    <div class="ghar-map-wrap">
+                    <img class="ghar-map-bg" src="ghar-world-map-bg.png" alt="Hand-drawn world map of GHAR kitchen origins" />
+                    <div class="ghar-map-markers" id="markers">
+                        <div class="map-marker" data-country="United States" style="left: 27.3%; top: 40%">
+                            <span class="marker-halo"></span><span class="marker-core"></span><span class="marker-label">United States</span>
+                        </div>
+                        <div class="map-marker" data-country="Mexico" style="left: 23.7%; top: 47%">
+                            <span class="marker-halo"></span><span class="marker-core"></span><span class="marker-label">Mexico</span>
+                        </div>
+                        <div class="map-marker" data-country="Morocco" style="left: 46.5%; top: 43%">
+                            <span class="marker-halo"></span><span class="marker-core"></span><span class="marker-label">Morocco</span>
+                        </div>
+                        <div class="map-marker" data-country="Italy" style="left: 52%; top: 39%">
+                            <span class="marker-halo"></span><span class="marker-core"></span><span class="marker-label">Italy</span>
+                        </div>
+                        <div class="map-marker" data-country="Greece" style="left: 53.6%; top: 39.5%">
+                            <span class="marker-halo"></span><span class="marker-core"></span><span class="marker-label">Greece</span>
+                        </div>
+                        <div class="map-marker" data-country="India" style="left: 69.8%; top: 47%">
+                            <span class="marker-halo"></span><span class="marker-core"></span><span class="marker-label">India</span>
+                        </div>
+                        <div class="map-marker" data-country="South Korea" style="left: 80%; top: 39%">
+                            <span class="marker-halo"></span><span class="marker-core"></span><span class="marker-label">South Korea</span>
+                        </div>
+                        <div class="map-marker" data-country="Japan" style="left: 81.6%; top: 39.5%">
+                            <span class="marker-halo"></span><span class="marker-core"></span><span class="marker-label">Japan</span>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <h2 class="map-prompt">Where did comfort begin for you?</h2>
+            </div>
+        </section>
+
+        <!-- Memories Section -->
+        <section id="memories" class="section memories-section">
+            <div class="container">
+                <h2 class="section-title">What were you feeling?</h2>
+                <div class="memory-filters" id="memory-filters">
+                    <!-- Buttons will be populated by JS -->
+                </div>
+                <p class="memory-statement" id="memory-statement">Somewhere in the world, someone is making something that tastes like home.</p>
+            </div>
+        </section>
+
+        <!-- Recipes Section -->
+        <section id="recipes" class="section recipes-section">
+            <div class="container" id="recipe-container">
+                <!-- Recipe Cards will be populated here -->
+            </div>
+        </section>
+
+        <!-- Family Table Section -->
+        <section id="family-table" class="section family-table-section">
+            <div class="table-container">
+                <div class="table-surface">
+                    <!-- Food items scattered along a horizontal scroll -->
+                    <div class="table-content" id="table-content">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+            </div>
+            
+            <div class="empty-chair-section">
+                <div class="chair-graphic">🪑</div>
+                <h3 class="chair-title">There's always room for one more.</h3>
+                <p class="chair-subtitle">What did home taste like for you?</p>
+            </div>
+        </section>
+
+        <!-- Contribution Section -->
+        <section id="contribution" class="section contribution-section">
+            <div class="container form-container">
+                <h2 class="form-title">Leave a Seat at the Table</h2>
+                <p class="form-subtitle">Tell us about the dish that tastes like home.</p>
+                <form id="contribution-form" class="ghar-form">
+                    <div class="form-group">
+                        <label for="country">Your country</label>
+                        <input type="text" id="country" name="country" required placeholder="e.g. India, Japan, Mexico...">
+                    </div>
+                    <div class="form-group">
+                        <label for="dish">Dish</label>
+                        <input type="text" id="dish" name="dish" required placeholder="e.g. Dal Chawal">
+                    </div>
+                    <div class="form-group">
+                        <label for="who-made-it">Who made it?</label>
+                        <input type="text" id="who-made-it" name="who-made-it" required placeholder="e.g. Maa, Nonna, Dad...">
+                    </div>
+                    <div class="form-group">
+                        <label for="memory">What do you remember?</label>
+                        <textarea id="memory" name="memory" required placeholder="The smell, the kitchen, the moment..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="recipe">Recipe (Optional)</label>
+                        <textarea id="recipe" name="recipe" placeholder="Ingredients and steps..."></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary">PLACE IT ON THE TABLE</button>
+                </form>
+                <div id="form-success" class="form-success hidden">
+                    <div class="plate-illustration">🍽️</div>
+                    <h3>A seat has been saved. ❤️</h3>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>Different kitchens. Different recipes. Same love.</p>
+    </footer>
+
+    <!-- Audio Element (Optional Architecture) -->
+    <audio id="kitchen-audio" loop>
+        <source src="kitchen-ambience.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
