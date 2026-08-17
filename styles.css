@@ -536,6 +536,9 @@ button {
 }
 
 .recipe-card {
+    content-visibility: auto;
+    contain-intrinsic-size: 600px;
+
     background-color: var(--color-cream);
     border: 1px solid var(--color-border);
     padding: var(--sp-12);

@@ -119,6 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Clear containers
         recipeContainer.innerHTML = '';
+        const fragment = document.createDocumentFragment();
 
         filtered.forEach((recipe, index) => {
             // Map data animation types to the requested reusable classes
@@ -197,8 +198,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     "${funTip}"
                 </div>
             `;
-            recipeContainer.appendChild(card);
+            fragment.appendChild(card);
         });
+        recipeContainer.appendChild(fragment);
     }
     const chair = document.getElementById('chair-trigger');
     const memoryForm = document.getElementById('memory-form');
