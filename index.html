@@ -95,30 +95,53 @@
             </div>
         </section>
 
-        <!-- Family Table Section -->
-        <section id="family-table" class="section family-table-section">
-            <div class="table-container">
-                <div class="table-surface">
-                    <!-- Food items scattered along a horizontal scroll -->
-                    <div class="table-content" id="table-content">
-                        <!-- Populated by JS -->
-                    </div>
-                </div>
-            </div>
-            
-            <div class="empty-chair-section">
-                <div class="chair-graphic">🪑</div>
-                <h3 class="chair-title">There's always room for one more.</h3>
-                <p class="chair-subtitle">What did home taste like for you?</p>
-            </div>
-        </section>
+                <!-- Our Table Section -->
+        <section id="our-table" class="our-table">
+          <div class="table-intro">
+            <span class="intro-handwriting handwriting">Then we all sit together at</span>
+            <h2>Our Table</h2>
+            <p>There is always room for one more.</p>
+            <p class="intro-click-hint">(Click the empty chair to pull up a seat)</p>
+          </div>
 
-        <!-- Contribution Section -->
-        <section id="contribution" class="section contribution-section">
-            <div class="container form-container">
+          <div class="table-scene">
+            <img class="table-image" src="table.png" alt="A wooden family table set with dishes from India, Japan, Italy, Mexico, and South Korea, with one empty chair waiting at the table." />
+
+            <div class="steam-layer" aria-hidden="true">
+              <div class="dish-steam" data-dish="india">
+                <div class="steam"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+              </div>
+              <div class="dish-steam" data-dish="japan">
+                <div class="steam"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+              </div>
+              <div class="dish-steam" data-dish="korea">
+                <div class="steam"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+              </div>
+              <div class="dish-steam" data-dish="mexico">
+                <div class="steam"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+              </div>
+              <div class="dish-steam" data-dish="italy">
+                <div class="steam"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+              </div>
+            </div>
+
+            <button
+              type="button"
+              class="empty-chair-trigger"
+              id="chair-trigger"
+              aria-expanded="false"
+              aria-controls="memory-form"
+              aria-label="Take a seat and leave a memory">
+              <span class="chair-highlight"></span>
+            </button>
+
+            <span class="chair-caption">We saved you a seat.</span>
+          </div>
+
+          <section class="memory-form" id="memory-form" aria-live="polite">
                 <h2 class="form-title">Leave a Seat at the Table</h2>
                 <p class="form-subtitle">Tell us about the dish that tastes like home.</p>
-                <form id="contribution-form" class="ghar-form">
+                <form id="contribution-form">
                     <div class="form-group">
                         <label for="country">Your country</label>
                         <input type="text" id="country" name="country" required placeholder="e.g. India, Japan, Mexico...">
@@ -145,13 +168,10 @@
                     <div class="plate-illustration">🍽️</div>
                     <h3>A seat has been saved. ❤️</h3>
                 </div>
-            </div>
+          </section>
         </section>
-    </main>
 
-    <footer class="site-footer">
-        <p>Different kitchens. Different recipes. Same love.</p>
-    </footer>
+
 
     <!-- Audio Element (Optional Architecture) -->
     <audio id="kitchen-audio" loop>

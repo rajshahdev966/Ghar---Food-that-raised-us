@@ -49,7 +49,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- DOM Elements ---
     const memoryFiltersContainer = document.getElementById('memory-filters');
     const recipeContainer = document.getElementById('recipe-container');
-    const tableContent = document.getElementById('table-content');
     const form = document.getElementById('contribution-form');
     const formSuccess = document.getElementById('form-success');
     const audioToggle = document.getElementById('audio-toggle');
@@ -120,7 +119,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Clear containers
         recipeContainer.innerHTML = '';
-        tableContent.innerHTML = '';
 
         filtered.forEach((recipe, index) => {
             // Map data animation types to the requested reusable classes
@@ -200,21 +198,28 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
             `;
             recipeContainer.appendChild(card);
-
-            // 2. Add to Family Table
-            const tableItem = document.createElement('div');
-            tableItem.className = 'table-item';
-            tableItem.innerHTML = `
-                <img src="assets/images/${recipe.id}.png" alt="${recipe.dish}" class="table-custom-svg ${classString}" onerror="this.src='https://placehold.co/100x100?text=Image'">
-                <div class="steam">
-                    <span></span><span></span><span></span><span></span><span></span><span></span>
-                </div>
-                
-                
-            `;
-            tableContent.appendChild(tableItem);
         });
     }
+    const chair = document.getElementById('chair-trigger');
+    const memoryForm = document.getElementById('memory-form');
+
+    if (chair && memoryForm) {
+        chair.addEventListener('pointerdown', function () {
+            const isOpen = memoryForm.classList.toggle('is-open');
+            chair.setAttribute('aria-expanded', String(isOpen));
+
+            if (isOpen) {
+                const firstField = memoryForm.querySelector('input, textarea, button, [tabindex]');
+                if (firstField) {
+                    window.setTimeout(function () { firstField.focus(); }, 350);
+                } else {
+                    memoryForm.setAttribute('tabindex', '-1');
+                    window.setTimeout(function () { memoryForm.focus(); }, 350);
+                }
+            }
+        });
+    }
+
 
     // --- Form Handling ---
     form.addEventListener('submit', (e) => {
